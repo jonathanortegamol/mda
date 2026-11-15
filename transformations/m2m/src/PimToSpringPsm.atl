@@ -1,0 +1,170 @@
+-- @nsURI ECORE=http://www.eclipse.org/emf/2002/Ecore
+-- @path SPRINGPSM=/ec.edu.ucuenca.mda.vuelos.modeling/metamodels/spring-psm.ecore
+module PimToSpringPsm;
+create OUT : SPRINGPSM from IN : ECORE;
+
+-- Perfil academico: el Ecore es el modelo de entrada; no se leen datos de vuelos.
+helper context ECORE!EClass def: business : Boolean =
+    self.ePackage.nsURI = 'https://ucuenca.edu.ec/mda/vuelos/1.0' and self.name <> 'SistemaVuelos';
+helper context String def: snake() : String =
+    self.toSequence()->iterate(c; result : String = '' |
+        result + if c = c.toUpper() and c <> c.toLower() then
+            if result = '' then c.toLower() else '_' + c.toLower() endif
+        else c endif);
+helper context ECORE!EClass def: table() : String =
+    if self.name = 'Avion' then 'aviones' else self.name.toLower() + 's' endif;
+helper context ECORE!EClass def: identity() : String =
+    if self.name = 'Aeropuerto' or self.name = 'Aerolinea' or self.name = 'Vuelo' then 'codigo'
+    else if self.name = 'Avion' then 'matricula'
+    else if self.name = 'Pasajero' then 'documento'
+    else if self.name = 'Reserva' then 'localizador'
+    else if self.name = 'Boleto' then 'numero' else '' endif endif endif endif endif;
+helper context ECORE!EReference def: owner : Boolean =
+    self.upperBound = 1 and (self.eOpposite.upperBound = -1 or self.lowerBound = 1);
+
+rule PackageToApplication {
+    from p : ECORE!EPackage (p.nsURI = 'https://ucuenca.edu.ec/mda/vuelos/1.0')
+    to a : SPRINGPSM!Application (
+        name <- 'FlightManagement', groupId <- 'ec.edu.ucuenca.mda',
+        artifactId <- 'flight-management', basePackage <- 'ec.edu.ucuenca.mda.vuelos',
+        javaVersion <- 21, springBootVersion <- '3.5.16', sourcePimNsURI <- p.nsURI,
+        database <- db,
+        entities <- p.eClassifiers->select(c | c.oclIsTypeOf(ECORE!EClass) and c.name <> 'SistemaVuelos'),
+        enums <- p.eClassifiers->select(c | c.oclIsTypeOf(ECORE!EEnum))
+    ), db : SPRINGPSM!Database (
+        product <- 'PostgreSQL', majorVersion <- '17', schemaName <- 'public',
+        ddlMode <- 'validate', timeZone <- 'UTC'
+    )
+}
+
+rule ClassToEntity {
+    from c : ECORE!EClass (c.business)
+    to e : SPRINGPSM!Entity (
+        name <- c.name, tableName <- c.table(), sourceClass <- c.name,
+        attributes <- Sequence { id }->union(c.eAttributes),
+        associations <- c.eReferences, constraints <- c.sqlConstraints(),
+        repository <- repository, service <- service, controller <- controller
+    ), id : SPRINGPSM!Attribute (
+        name <- 'id', columnName <- 'id', javaType <- #LONG, sqlType <- 'bigint',
+        nullable <- false, primaryKey <- true, generated <- true, idStrategy <- 'IDENTITY'
+    ), repository : SPRINGPSM!Repository (
+        name <- c.name + 'Repository', baseInterface <- 'org.springframework.data.jpa.repository.JpaRepository'
+    ), service : SPRINGPSM!Service (
+        name <- c.name + 'Service', transactional <- true, policies <- c.servicePolicies()
+    ), controller : SPRINGPSM!RestController (
+        name <- c.name + 'Controller', basePath <- '/api/' + c.table(), operations <- c.operations()
+    )
+}
+
+rule AttributeToColumn {
+    from a : ECORE!EAttribute (a.eContainingClass.business)
+    to t : SPRINGPSM!Attribute (
+        name <- a.name, columnName <- a.name.snake(), nullable <- a.lowerBound = 0,
+        javaType <- if a.eType.oclIsTypeOf(ECORE!EEnum) then #ENUM
+            else if a.eType.name = 'EInt' then #INTEGER
+            else if a.eType.name = 'EDate' then #OFFSET_DATE_TIME else #STRING endif endif endif,
+        sqlType <- if a.eType.oclIsTypeOf(ECORE!EEnum) then 'varchar(32)'
+            else if a.eType.name = 'EInt' then 'integer'
+            else if a.eType.name = 'EDate' then 'timestamp with time zone' else 'varchar(255)' endif endif endif,
+        enumType <- if a.eType.oclIsTypeOf(ECORE!EEnum) then a.eType else OclUndefined endif,
+        notBlank <- a.eType.name = 'EString' and a.lowerBound > 0,
+        positive <- a.name = 'capacidad' or a.name = 'numeroAsiento',
+        length <- if a.eType.name = 'EString' then 255 else if a.eType.oclIsTypeOf(ECORE!EEnum) then 32 else 0 endif endif
+    )
+}
+
+rule ReferenceToAssociation {
+    from r : ECORE!EReference (r.eContainingClass.business)
+    to a : SPRINGPSM!Association (
+        name <- r.name, target <- r.eType, opposite <- r.eOpposite,
+        lower <- r.lowerBound, upper <- r.upperBound, owning <- r.owner,
+        kind <- if r.upperBound = -1 then #ONE_TO_MANY
+            else if r.eOpposite.upperBound = -1 then #MANY_TO_ONE else #ONE_TO_ONE endif endif,
+        joinColumn <- if r.owner then r.name.snake() + '_id' else OclUndefined endif,
+        mappedBy <- if r.owner then OclUndefined else r.eOpposite.name endif,
+        fetch <- 'LAZY', onDelete <- if r.owner then 'RESTRICT' else OclUndefined endif
+    )
+}
+
+rule EnumToJavaEnum {
+    from e : ECORE!EEnum (e.ePackage.nsURI = 'https://ucuenca.edu.ec/mda/vuelos/1.0')
+    to t : SPRINGPSM!EnumType (name <- e.name, storage <- 'STRING', literals <- e.eLiterals)
+}
+rule LiteralToJavaLiteral {
+    from l : ECORE!EEnumLiteral (l.eEnum.ePackage.nsURI = 'https://ucuenca.edu.ec/mda/vuelos/1.0')
+    to t : SPRINGPSM!EnumLiteral (name <- l.name)
+}
+
+-- Reglas llamadas: todos los objetos tecnologicos se crean dentro de ATL.
+rule Operation(n : String, k : String, verb : String, p : String) {
+    to t : SPRINGPSM!Operation (
+        name <- n, path <- p, httpMethod <- if verb = 'GET' then #GET else #POST endif,
+        kind <- if k = 'LIST' then #LIST else if k = 'DETAIL' then #DETAIL
+            else if k = 'CREATE' then #CREATE else if k = 'AVAILABLE' then #AVAILABLE
+            else if k = 'CANCEL' then #CANCEL else #ISSUE endif endif endif endif endif
+    ) do { t; }
+}
+helper context ECORE!EClass def: operations() : Sequence(OclAny) =
+    Sequence { thisModule.Operation('listar', 'LIST', 'GET', ''),
+        thisModule.Operation('consultar', 'DETAIL', 'GET', '/{id}') }
+    ->union(if self.name = 'Boleto' then
+        Sequence { thisModule.Operation('emitir', 'ISSUE', 'POST', '/reserva/{reservaId}') }
+        else if self.name = 'Reserva' then
+        Sequence { thisModule.Operation('reservar', 'CREATE', 'POST', ''),
+            thisModule.Operation('cancelar', 'CANCEL', 'POST', '/{id}/cancelacion') }
+        else Sequence { thisModule.Operation('crear', 'CREATE', 'POST', '') } endif endif)
+    ->union(if self.name = 'Vuelo' then
+        Sequence { thisModule.Operation('disponibles', 'AVAILABLE', 'GET', '/disponibles') }
+        else Sequence {} endif);
+
+rule Sql(n : String, k : String, cols : Sequence(String), expr : String, rules : String) {
+    to t : SPRINGPSM!SqlConstraint (
+        name <- n, kind <- if k = 'UNIQUE' then #UNIQUE else if k = 'CHECK' then #CHECK else #PARTIAL_UNIQUE endif endif,
+        columns <- cols, expression <- if expr = '' then OclUndefined else expr endif, cimRules <- rules
+    ) do { t; }
+}
+helper context ECORE!EClass def: sqlConstraints() : Sequence(OclAny) =
+    (if self.identity() <> '' then Sequence {
+        thisModule.Sql('uk_' + self.name.snake() + '_' + self.identity(), 'UNIQUE', Sequence { self.identity() }, '', 'RN-10')
+    } else Sequence {} endif)->union(
+    if self.name = 'Avion' then Sequence {
+        thisModule.Sql('ck_avion_capacidad', 'CHECK', Sequence {}, 'capacidad > 0', 'RN-09')
+    } else if self.name = 'Ruta' then Sequence {
+        thisModule.Sql('uk_ruta_extremos', 'UNIQUE', Sequence {'origen_id', 'destino_id'}, '', 'RN-11'),
+        thisModule.Sql('ck_ruta_extremos', 'CHECK', Sequence {}, 'origen_id <> destino_id', 'RN-01')
+    } else if self.name = 'Vuelo' then Sequence {
+        thisModule.Sql('ck_vuelo_horario', 'CHECK', Sequence {}, 'llegada > salida', 'RN-02')
+    } else if self.name = 'Reserva' then Sequence {
+        thisModule.Sql('uk_reserva_asiento_confirmado', 'PARTIAL_UNIQUE', Sequence {'vuelo_id', 'numero_asiento'}, 'estado = \'CONFIRMADA\'', 'RN-17'),
+        thisModule.Sql('uk_reserva_pasajero_confirmado', 'PARTIAL_UNIQUE', Sequence {'vuelo_id', 'pasajero_id'}, 'estado = \'CONFIRMADA\'', 'RN-04'),
+        thisModule.Sql('ck_reserva_asiento', 'CHECK', Sequence {}, 'numero_asiento > 0', 'RN-16'),
+        thisModule.Sql('ck_reserva_estado', 'CHECK', Sequence {}, 'estado IN (\'CONFIRMADA\', \'CANCELADA\')', 'RN-13')
+    } else if self.name = 'Boleto' then Sequence {
+        thisModule.Sql('uk_boleto_reserva', 'UNIQUE', Sequence {'reserva_id'}, '', 'RN-07')
+    } else Sequence {} endif endif endif endif endif);
+
+rule Policy(n : String, k : String, rules : String, description : String) {
+    to t : SPRINGPSM!Policy (
+        name <- n, cimRules <- rules, description <- description,
+        kind <- if k = 'VALIDATE' then #VALIDATE else if k = 'TEMPORAL' then #TEMPORAL
+            else if k = 'LOCK' then #LOCK else if k = 'ALLOCATE_SEAT' then #ALLOCATE_SEAT
+            else if k = 'CANCEL_RESERVATION' then #CANCEL_RESERVATION else #ISSUE_TICKET endif endif endif endif endif
+    ) do { t; }
+}
+helper context ECORE!EClass def: servicePolicies() : Sequence(OclAny) =
+    Sequence { thisModule.Policy('validarDatos', 'VALIDATE', 'RN-10 RN-15',
+        'Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados.') }
+    ->union(if self.name = 'Avion' then Sequence {
+        thisModule.Policy('validarCapacidad', 'VALIDATE', 'RN-09 RN-14', 'Capacidad positiva y aerolinea existente.')
+    } else if self.name = 'Ruta' then Sequence {
+        thisModule.Policy('validarExtremos', 'VALIDATE', 'RN-01 RN-11', 'Extremos distintos, existentes y par dirigido unico.')
+    } else if self.name = 'Vuelo' then Sequence {
+        thisModule.Policy('bloquearAvion', 'LOCK', 'RN-08', 'Bloqueo pesimista de la fila del avion durante programacion para serializar asignaciones.'),
+        thisModule.Policy('validarHorario', 'TEMPORAL', 'RN-02 RN-05 RN-08 RN-12', 'Salida futura, llegada posterior y ausencia de solapamiento [salida,llegada) con vuelos del avion bloqueado.')
+    } else if self.name = 'Reserva' then Sequence {
+        thisModule.Policy('bloquearVuelo', 'LOCK', 'RN-03 RN-04 RN-17', 'Bloquear la fila del vuelo antes de consultar cupos, duplicidad y asientos; mantener bloqueo hasta confirmar la transaccion.'),
+        thisModule.Policy('asignarAsiento', 'ALLOCATE_SEAT', 'RN-03 RN-04 RN-06 RN-12 RN-16 RN-17 RN-18', 'Con vuelo bloqueado y salida futura: verificar pasajero, duplicidad y capacidad; asignar el menor asiento libre del 1 a capacidad; confirmar atomicamente.'),
+        thisModule.Policy('cancelarSinBoleto', 'CANCEL_RESERVATION', 'RN-12 RN-13 RN-19', 'Bloquear vuelo y luego reserva; cancelar antes de salida solo sin boleto; conservar asiento historico; repetir cancelacion no libera otro cupo.')
+    } else if self.name = 'Boleto' then Sequence {
+        thisModule.Policy('emitirUnaVez', 'ISSUE_TICKET', 'RN-07 RN-12 RN-19', 'Bloquear vuelo y luego reserva, igual que cancelacion; devolver boleto existente o emitir para confirmada antes de salida; mostrar asiento por referencia.')
+    } else Sequence {} endif endif endif endif endif);

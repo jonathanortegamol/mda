@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vuelos:SistemaVuelos xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vuelos="https://ucuenca.edu.ec/mda/vuelos/1.0"
+    xsi:schemaLocation="https://ucuenca.edu.ec/mda/vuelos/1.0 ../metamodels/vuelos.ecore">
+  <aeropuertos xmi:id="cue" codigo="CUE" nombre="Aeropuerto de Cuenca" ciudad="Cuenca" rutasOrigen="ruta01"/>
+  <aeropuertos xmi:id="uio" codigo="UIO" nombre="Aeropuerto de Quito" ciudad="Quito" rutasDestino="ruta01"/>
+  <aerolineas xmi:id="academia" codigo="ACADEMIA" nombre="Aerolinea Academica" aviones="avion01"/>
+  <aviones xmi:id="avion01" matricula="DEMO-01" capacidad="2" aerolinea="academia" vuelos="vuelo01"/>
+  <rutas xmi:id="ruta01" origen="cue" destino="uio" vuelos="vuelo01"/>
+  <vuelos xmi:id="vuelo01" codigo="DEMO-001" salida="2030-01-10T15:00:00.000+0000"
+      llegada="2030-01-10T16:00:00.000+0000" ruta="ruta01" avion="avion01" reservas="res01 res02"/>
+  <pasajeros xmi:id="p01" documento="DEMO-P01" nombreCompleto="Ana Ejemplo" contacto="ana@example.invalid" reservas="res01"/>
+  <pasajeros xmi:id="p02" documento="DEMO-P02" nombreCompleto="Luis Ejemplo" contacto="luis@example.invalid" reservas="res02"/>
+  <reservas xmi:id="res01" localizador="RES-001" creadaEn="2030-01-09T15:00:00.000+0000"
+      estado="CONFIRMADA" numeroAsiento="1" pasajero="p01" vuelo="vuelo01" boleto="bol01"/>
+  <reservas xmi:id="res02" localizador="RES-002" creadaEn="2030-01-09T15:01:00.000+0000"
+      estado="CONFIRMADA" numeroAsiento="2" pasajero="p02" vuelo="vuelo01"/>
+  <boletos xmi:id="bol01" numero="BOL-001" emitidoEn="2030-01-09T15:02:00.000+0000" reserva="res01"/>
+</vuelos:SistemaVuelos>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>ec.edu.ucuenca.mda.vuelos.m2m</name>
+  <comment>Transformacion ATL real del Ecore PIM al PSM Spring Boot</comment>
+  <projects><project>ec.edu.ucuenca.mda.vuelos.modeling</project></projects>
+  <buildSpec><buildCommand><name>org.eclipse.m2m.atl.adt.builder.atlBuilder</name><arguments/></buildCommand></buildSpec>
+  <natures><nature>org.eclipse.m2m.atl.adt.builder.atlNature</nature></natures>
+</projectDescription>

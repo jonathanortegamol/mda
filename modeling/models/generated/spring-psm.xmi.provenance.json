@@ -1,0 +1,52 @@
+﻿{
+    "engine":  "ATL EMFVM",
+    "compiler":  "Atl2006Compiler",
+    "verificationSuiteExecuted":  true,
+    "runtimeJars":  [
+                        "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
+                        "org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar",
+                        "org.eclipse.emf.ecore.xmi_2.39.0.v20250414-1351.jar",
+                        "org.eclipse.m2m.atl.common_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.core_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.core.emf_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.engine_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.engine.emfvm_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.dsls_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.drivers.emf4atl_4.12.0.v202505101449.jar",
+                        "org.eclipse.core.runtime_3.34.0.v20250711-1249.jar",
+                        "org.eclipse.equinox.common_3.20.200.v20250628-0509.jar",
+                        "org.eclipse.osgi_3.23.200.v20250812-1847.jar",
+                        "org.antlr.runtime_3.2.0.v20230929-1400.jar",
+                        "org.eclipse.m2m.atl.emftvm_4.12.0.v202505101449.jar",
+                        "org.eclipse.m2m.atl.emftvm.trace_4.12.0.v202505101449.jar",
+                        "org.eclipse.emf.validation_1.9.0.202408231629.jar",
+                        "org.objectweb.asm_9.8.0.jar"
+                    ],
+    "generatedAtUtc":  "2026-11-15T17:54:02.9133165Z",
+    "files":  [
+                  {
+                      "path":  "transformations\\m2m\\src\\PimToSpringPsm.atl",
+                      "sha256":  "0D81689E7D79B33E0FA8178CC3A7C11A6D37C845DB78D8178A7C07299D35DD15"
+                  },
+                  {
+                      "path":  "transformations\\m2m\\supported-ocl.properties",
+                      "sha256":  "83001B94AD61B65BD2289015798D695557027E2B9396698C6B070D2CDB05FEC9"
+                  },
+                  {
+                      "path":  "modeling\\metamodels\\vuelos.ecore",
+                      "sha256":  "D8CF2B950B65DED2762CABBBE5D3D01B1831AA280051C88CCD189682B75F9D64"
+                  },
+                  {
+                      "path":  "modeling\\metamodels\\spring-psm.ecore",
+                      "sha256":  "F4B509C278D5E743D1000F2815E46AF316593D134B6256BA7E5F0D1E839EBA24"
+                  },
+                  {
+                      "path":  "transformations\\m2m\\build\\PimToSpringPsm.asm",
+                      "sha256":  "BF9AB1A99F9E266DADB12FF2D39233BB9502A37AD9E4974814A8F20732250938"
+                  },
+                  {
+                      "path":  "modeling\\models\\generated\\spring-psm.xmi",
+                      "sha256":  "B6AFDC8957559F641057B518CE9509164BA6168DCC76B848DD0108AE64B10111"
+                  }
+              ]
+}

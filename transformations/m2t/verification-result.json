@@ -1,0 +1,10 @@
+﻿{
+    "checkedAtUtc":  "2026-11-15T17:13:37.6194560Z",
+    "m2m":  "passed",
+    "acceleoCompilation":  "passed",
+    "deterministicOutputs":  56,
+    "phonePropagation":  "passed",
+    "cachedJavaAndJUnit":  true,
+    "exactMaven3516":  "not verified: dependencies unavailable and network restricted",
+    "databaseAndHttpExecution":  "not performed in this phase"
+}

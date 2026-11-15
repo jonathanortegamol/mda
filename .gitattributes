@@ -1,0 +1,2 @@
+# Preserve the exact bytes used by the generation provenance SHA-256 records.
+* -text

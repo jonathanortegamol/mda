@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Manual build infrastructure: read existing cache, write only the workspace repository. -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0">
+  <profiles>
+    <profile>
+      <id>installed-cache</id>
+      <repositories>
+        <repository><id>installed-cache</id><url>${mda.cache.url}</url><releases><checksumPolicy>ignore</checksumPolicy></releases><snapshots><enabled>false</enabled></snapshots></repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository><id>installed-cache</id><url>${mda.cache.url}</url><releases><checksumPolicy>ignore</checksumPolicy></releases><snapshots><enabled>false</enabled></snapshots></pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles><activeProfile>installed-cache</activeProfile></activeProfiles>
+</settings>

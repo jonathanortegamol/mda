@@ -1,0 +1,276 @@
+﻿{
+    "generator":  "Acceleo 3",
+    "generatedAtUtc":  "2026-11-15T17:18:16.8241716Z",
+    "inputMode":  "ATL-produced PSM (provenance checked)",
+    "runtimeJars":  [
+                        "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
+                        "org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar",
+                        "org.eclipse.emf.ecore.xmi_2.39.0.v20250414-1351.jar",
+                        "org.eclipse.acceleo.common_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.model_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.parser_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.engine_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.profiler_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.traceability_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.traceability.model_3.7.15.202402190857.jar",
+                        "org.eclipse.ocl_3.22.0.v20240902-1518.jar",
+                        "org.eclipse.ocl.ecore_3.22.0.v20240902-1518.jar",
+                        "org.eclipse.ocl.common_1.22.0.v20240902-1518.jar",
+                        "org.eclipse.core.runtime_3.34.0.v20250711-1249.jar",
+                        "org.eclipse.equinox.common_3.20.200.v20250628-0509.jar",
+                        "org.eclipse.osgi_3.23.200.v20250812-1847.jar",
+                        "lpg.runtime.java_2.0.17.v201004271640.jar",
+                        "com.google.guava_33.4.8.jre.jar",
+                        "com.google.guava.failureaccess_1.0.3.jar",
+                        "org.eclipse.text_3.14.400.v20250731-0735.jar",
+                        "org.eclipse.core.contenttype_3.9.700.v20250720-0618.jar"
+                    ],
+    "sources":  [
+                    {
+                        "path":  "transformations\\m2t\\src\\backend.mtl",
+                        "sha256":  "8421D247F140A345A28EE97BD9861B3CB163AA993A13372B7F2BBEBB2F0456E6"
+                    },
+                    {
+                        "path":  "modeling\\models\\generated\\spring-psm.xmi",
+                        "sha256":  "B6AFDC8957559F641057B518CE9509164BA6168DCC76B848DD0108AE64B10111"
+                    },
+                    {
+                        "path":  "modeling\\metamodels\\vuelos.ecore",
+                        "sha256":  "D8CF2B950B65DED2762CABBBE5D3D01B1831AA280051C88CCD189682B75F9D64"
+                    },
+                    {
+                        "path":  "modeling\\metamodels\\spring-psm.ecore",
+                        "sha256":  "F4B509C278D5E743D1000F2815E46AF316593D134B6256BA7E5F0D1E839EBA24"
+                    },
+                    {
+                        "path":  "transformations\\m2t\\build\\backend.emtl",
+                        "sha256":  "286DED45F4C2E4AD0E958BF4E35275C13ED04EF51691E3150DD39BF4FE51B802"
+                    }
+                ],
+    "outputs":  [
+                    {
+                        "path":  "pom.xml",
+                        "sha256":  "22D3280E3164DAF837D50611484CA349D35B9FD709A1F7E356432B4C48FDB406"
+                    },
+                    {
+                        "path":  "schema.sql",
+                        "sha256":  "AD493A9A5AFD8D2C28A3FEE28913F6B0A0A5CD7DE1091130FF1702C9FF4F642A"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Aerolinea.java",
+                        "sha256":  "F65AEA036A765BE334132E2C140D7138FF1D8125089EA2EDE48E6D6DECD54871"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Aeropuerto.java",
+                        "sha256":  "AED63F7151071DD90893705EF379C246FA9D4F3E783B6DDE0EB5EE1D13F60120"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Avion.java",
+                        "sha256":  "E77148A73D4360B9D393CA9379369183C393517C91AC6538027018F53076FFE4"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Boleto.java",
+                        "sha256":  "E4E8973268E3BFD0B25F36006612BDC175639B01E65ED2CEABDC59B4D4AF71C0"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\EstadoReserva.java",
+                        "sha256":  "6DE35AFF877731E574A0DE86142D9E1E8E28C7520EB84EDE3D5E3E1008EC7792"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Pasajero.java",
+                        "sha256":  "EC3629A9F8C7DCD4B572CC23C3F957299007C614C02B1D4FAC76EC6C84093453"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Reserva.java",
+                        "sha256":  "54682B72380057ECA0B33EE1DCCF00A3D2A2E0061EFF4900A3E71C65B7720C8F"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Ruta.java",
+                        "sha256":  "C4E7F26F8955BB3B97AE03AC0356EB9DA9E92ABDD79FA6D9D8F5B2955F88FD9B"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\domain\\Vuelo.java",
+                        "sha256":  "233989B0FEAE84FD71A615A689C67E1D9DA8CDFA014CE3BE96524809BF64D3E4"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AerolineaRequest.java",
+                        "sha256":  "251EA36452D42344FE1C7D1A8656241AF3F5A020BD7DEFE906CC0BBB6513EA34"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AerolineaResponse.java",
+                        "sha256":  "AE6BBBB982449858EC9D3EBFA2D2ACD9C1F8809B5D64E0AAE4D7EE3BA971B7CB"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AeropuertoRequest.java",
+                        "sha256":  "21DEE1062E7C6C377D815586E86ABD030A75C8CD25E132613AEEDD28598D6C0C"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AeropuertoResponse.java",
+                        "sha256":  "FE2B89AD9618DF1A172484E06A0F978A778F23C76F499F2FC7B0A810F8AB9B9D"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AvionRequest.java",
+                        "sha256":  "0C1CA2D3827CA0BFD56384986FA27D4626D49F259379F0326259ED0B942E5ED2"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\AvionResponse.java",
+                        "sha256":  "D47690665B91585540D1D39F762BF44B06C7719AF37521662901E6FDA661BB4C"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\BoletoResponse.java",
+                        "sha256":  "36475240208CC3282CBD9ADAB029F02D5814DC2195383B4077F2C7A708BEDE70"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\PasajeroRequest.java",
+                        "sha256":  "BF2C0FF0C9F2349E07CFDA3F1C93794BCC21F9ABAE5688633A029D982D0829FE"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\PasajeroResponse.java",
+                        "sha256":  "B286278FC24A226E6F71DDF7659E07BE0CFF06F5C9941404B494C93DF3F8E8D7"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\ReservaRequest.java",
+                        "sha256":  "7BE465FD776DF08656A93931B7F126C3809BB31FF3CFC6F72ECEB033CECA8392"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\ReservaResponse.java",
+                        "sha256":  "3DB78FCFB59FDCA8F6A069D8AB5C1FA8BBA5D9EF08D3D4CB2449179FFE2CB321"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\RutaRequest.java",
+                        "sha256":  "24B900E021885C9167A808EDC7C228E05F27FA927B1E670FF57D17A64C2AFB99"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\RutaResponse.java",
+                        "sha256":  "1177C343D0850FFA83EEB9F58F0F059532A3EA0D3056B1A3C9A4B9501F723FF1"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\VueloRequest.java",
+                        "sha256":  "EC62674807788E802097C4EB71F146BDC51A5201688A079DB3B300D6533D7104"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\dto\\VueloResponse.java",
+                        "sha256":  "481717EE7C5BD99B9B7D03230C557A476429B0CDF4F30976FD48DFF185C92988"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\FlightManagementApplication.java",
+                        "sha256":  "5298657CB60F03215C26905BC333C7605D63032BAE8E374BF4BF8B844CD78CD1"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\AerolineaRepository.java",
+                        "sha256":  "E1A3CDD157876A9E31BCFFEAC3457CD460E405F3EDF54CA73396C95D9BECED5E"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\AeropuertoRepository.java",
+                        "sha256":  "E2F462E2FEB2BF4CDA3985513E745528974D1DC9ABA1A28D0AA0456469A06E17"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\AvionRepository.java",
+                        "sha256":  "29B88D0C25D1B1433DC72062971B2F00273928B951A20F7E4331C6B6257F5451"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\BoletoRepository.java",
+                        "sha256":  "F29533B74281999D8E91723328B09E38ED70CEF62A337E63A41EDA8E0828CBF3"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\PasajeroRepository.java",
+                        "sha256":  "9FB27A3414A53FC84D726659965B9488C4EFE1063C03CFD97473D7505360D93A"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\ReservaRepository.java",
+                        "sha256":  "D355589B576A234EA9ABF71E9341C1105A9D20B5010C17DAF792F45C2F2AA7C8"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\RutaRepository.java",
+                        "sha256":  "0456D4671CD09834BB48434EF489FBD4DF2FDE8158BC9265DE467F8DE7114940"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\repository\\VueloRepository.java",
+                        "sha256":  "96D51832E11BA20D8806E5D9B0A10BAB4F341852946FDD5F4FE2C64220D8B963"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\AerolineaService.java",
+                        "sha256":  "16603E217FC057BE56D79B52EF9333E4393C0B11AD243D47127EE5D93BB2957A"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\AeropuertoService.java",
+                        "sha256":  "CC7699990B6DCDDF8C6E74881ED7A130FA4F6719B8E75D5A1325A829A95ED5FB"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\AvionService.java",
+                        "sha256":  "54B3032F4F6655493E95CA9197B53FA70A87043ED9E1322BC2979AEEB06C3C56"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\BoletoService.java",
+                        "sha256":  "A7B8904C7D4080BA3B13F01B40F45696BD272CB354F0E36B034549D7D655A07B"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\PasajeroService.java",
+                        "sha256":  "3399981F462CC6FF09F891E505DD01959AD24C4EF3AA013B835D8A7FCAA7728F"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\ReservaService.java",
+                        "sha256":  "A0D1105462E847ABD225326851E6C0B77C0286DCD5574DD35809561EDCB42C7A"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\RutaService.java",
+                        "sha256":  "BC12BBC797CD4DAF144219E6DA0173F81422AE34369B3B4BE0E906C2940BB8D2"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\VueloService.java",
+                        "sha256":  "4E995598F42EEFFFB1E003D34FCA2348151AE2E49261453E793D90BD4900FB66"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\support\\BusinessException.java",
+                        "sha256":  "4DF6CC87ACAC3EFB63DBBE84525CDFFA871AC747F2346D995B161008F9771931"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\AerolineaController.java",
+                        "sha256":  "9D80668205B603AA90C705FB4E3FA69E76490221D67DB1CBA7142F65CFD35084"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\AeropuertoController.java",
+                        "sha256":  "7936D2E3692DFBDAEB0F7F76F16AED133A2221A808CE4A04671353D7D63D0ECD"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\ApiExceptionHandler.java",
+                        "sha256":  "768EC9445D26F6E457F5D39FDDAE7451D68AE2E4CAB6BB7741854E53F2C41E19"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\AvionController.java",
+                        "sha256":  "9A4BF0E2F2C159DFE70225C13665D2ECC906C70FFE09237A0756D977C9906ECE"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\BoletoController.java",
+                        "sha256":  "2BB957E9A645B8E59F4E43264092B9ED41EDC586E70BE3F6CDF22A87AC5451D8"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\PasajeroController.java",
+                        "sha256":  "67F4678900A4301057187E87363EDC64E29904E1D97B4F5DF023EFF4F213D92C"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\ReservaController.java",
+                        "sha256":  "CA740F1118B5F1C95F3307D89C03CE68A456585CE9A1395B30514558308BF5A6"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\RutaController.java",
+                        "sha256":  "475F774CF1DDF4A61195207855B25A581A0EEB59E5797C7CB1D410D5679C01C6"
+                    },
+                    {
+                        "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\web\\VueloController.java",
+                        "sha256":  "B4B6BAB835DCFFED4DD81B1BE01C728DD19F1131578D1A4B73CBDD130E5F43F7"
+                    },
+                    {
+                        "path":  "src\\main\\resources\\application.properties",
+                        "sha256":  "1F04ECDC850AF2D1CE215CBFCA066048B1854D40C34CB97A3295D6C0B4768D14"
+                    },
+                    {
+                        "path":  "src\\test\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\BusinessRulesTest.java",
+                        "sha256":  "BB299BCDDED0B24E9A06B1367B4E56C8085F73416FAEA69AF6C5BEBA60120961"
+                    },
+                    {
+                        "path":  "src\\test\\resources\\mockito-extensions\\org.mockito.plugins.MockMaker",
+                        "sha256":  "8ECA853A5A457F17E0479B71DFBE95F2A13AFF9EEFF250261ECDC8CA9B847A6A"
+                    }
+                ]
+}

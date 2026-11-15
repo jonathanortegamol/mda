@@ -1,0 +1,73 @@
+﻿{
+    "generator":  "Acceleo 3",
+    "target":  "frontend",
+    "generatedAtUtc":  "2026-11-15T17:54:13.5917650Z",
+    "inputMode":  "ATL-produced PSM (provenance checked)",
+    "runtimeJars":  [
+                        "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
+                        "org.eclipse.emf.ecore_2.40.0.v20250803-1633.jar",
+                        "org.eclipse.emf.ecore.xmi_2.39.0.v20250414-1351.jar",
+                        "org.eclipse.acceleo.common_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.model_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.parser_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.engine_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.profiler_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.traceability_3.7.15.202402190857.jar",
+                        "org.eclipse.acceleo.traceability.model_3.7.15.202402190857.jar",
+                        "org.eclipse.ocl_3.22.0.v20240902-1518.jar",
+                        "org.eclipse.ocl.ecore_3.22.0.v20240902-1518.jar",
+                        "org.eclipse.ocl.common_1.22.0.v20240902-1518.jar",
+                        "org.eclipse.core.runtime_3.34.0.v20250711-1249.jar",
+                        "org.eclipse.equinox.common_3.20.200.v20250628-0509.jar",
+                        "org.eclipse.osgi_3.23.200.v20250812-1847.jar",
+                        "lpg.runtime.java_2.0.17.v201004271640.jar",
+                        "com.google.guava_33.4.8.jre.jar",
+                        "com.google.guava.failureaccess_1.0.3.jar",
+                        "org.eclipse.text_3.14.400.v20250731-0735.jar",
+                        "org.eclipse.core.contenttype_3.9.700.v20250720-0618.jar"
+                    ],
+    "sources":  [
+                    {
+                        "path":  "transformations\\m2t\\src\\frontend.mtl",
+                        "sha256":  "9CB93B28CFB6FD16E4E01C3BB1A8292421B8C343B745D05E4A159ABEB4195368"
+                    },
+                    {
+                        "path":  "modeling\\models\\generated\\spring-psm.xmi",
+                        "sha256":  "B6AFDC8957559F641057B518CE9509164BA6168DCC76B848DD0108AE64B10111"
+                    },
+                    {
+                        "path":  "modeling\\metamodels\\vuelos.ecore",
+                        "sha256":  "D8CF2B950B65DED2762CABBBE5D3D01B1831AA280051C88CCD189682B75F9D64"
+                    },
+                    {
+                        "path":  "modeling\\metamodels\\spring-psm.ecore",
+                        "sha256":  "F4B509C278D5E743D1000F2815E46AF316593D134B6256BA7E5F0D1E839EBA24"
+                    },
+                    {
+                        "path":  "transformations\\m2t\\build\\frontend.emtl",
+                        "sha256":  "112F7236AACF5F384AB848848A9AFBF2D8ADD408086F5EF81772A35997316A1F"
+                    }
+                ],
+    "outputs":  [
+                    {
+                        "path":  "app.js",
+                        "sha256":  "2293843D84D1F29207F665B1F98F97EA75352F3F02933A3F0ED9E28B813DB0FE"
+                    },
+                    {
+                        "path":  "demo-store.js",
+                        "sha256":  "93C66F27CC293DBE4A3AF5F85F51FD641698EFC3F00B8CF94FA3EF75D3C2A43B"
+                    },
+                    {
+                        "path":  "index.html",
+                        "sha256":  "09D573F4558E1354746C2219937AED8ECD8709553FF6E158EB993312E6681415"
+                    },
+                    {
+                        "path":  "model.js",
+                        "sha256":  "9DA4977F8EB5258CE37E241DD09E6E07A1517C4C395B62979BE516E9FC7BFF95"
+                    },
+                    {
+                        "path":  "styles.css",
+                        "sha256":  "65CC61BD493B57E5C10149BF573E321DE0DB15A19F5BDED9974D003B762553E1"
+                    }
+                ]
+}

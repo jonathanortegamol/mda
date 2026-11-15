@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>ec.edu.ucuenca.mda.vuelos.m2t</name>
+  <comment>Plantillas Acceleo 3 del backend de vuelos</comment>
+  <projects><project>ec.edu.ucuenca.mda.vuelos.modeling</project></projects>
+  <buildSpec>
+    <buildCommand><name>org.eclipse.jdt.core.javabuilder</name><arguments/></buildCommand>
+    <buildCommand><name>org.eclipse.pde.ManifestBuilder</name><arguments/></buildCommand>
+    <buildCommand><name>org.eclipse.pde.SchemaBuilder</name><arguments/></buildCommand>
+    <buildCommand><name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name><arguments/></buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.acceleo.ide.ui.acceleoNature</nature>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+    <nature>org.eclipse.pde.PluginNature</nature>
+  </natures>
+</projectDescription>

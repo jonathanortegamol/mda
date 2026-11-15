@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<springpsm:Application xmlns:springpsm="https://ucuenca.edu.ec/mda/springpsm/1.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0" xsi:schemaLocation="https://ucuenca.edu.ec/mda/springpsm/1.0 ../metamodels/spring-psm.ecore" name="FlightManagement" groupId="ec.edu.ucuenca.mda" artifactId="flight-management" basePackage="ec.edu.ucuenca.mda.vuelos" javaVersion="21" springBootVersion="3.5.16" sourcePimNsURI="https://ucuenca.edu.ec/mda/vuelos/1.0">
+  <database product="PostgreSQL" majorVersion="17" schemaName="public" ddlMode="validate" timeZone="UTC" />
+  <enums xmi:id="estadoReserva" name="EstadoReserva" storage="STRING">
+    <literals name="CONFIRMADA" />
+    <literals name="CANCELADA" />
+  </enums>
+  <entities xmi:id="Aeropuerto" name="Aeropuerto" tableName="aeropuertos" sourceClass="Aeropuerto">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="codigo" columnName="codigo" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="nombre" columnName="nombre" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="ciudad" columnName="ciudad" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <repository name="AeropuertoRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="AeropuertoService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+    </service>
+    <controller name="AeropuertoController" basePath="/api/aeropuertos">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+    </controller>
+    <associations xmi:id="Aeropuerto_rutasOrigen" name="rutasOrigen" target="Ruta" opposite="Ruta_origen" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="origen" fetch="LAZY" />
+    <associations xmi:id="Aeropuerto_rutasDestino" name="rutasDestino" target="Ruta" opposite="Ruta_destino" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="destino" fetch="LAZY" />
+    <constraints name="uk_aeropuerto_codigo" kind="UNIQUE" cimRules="RN-10" columns="codigo" />
+  </entities>
+  <entities xmi:id="Aerolinea" name="Aerolinea" tableName="aerolineas" sourceClass="Aerolinea">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="codigo" columnName="codigo" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="nombre" columnName="nombre" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <repository name="AerolineaRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="AerolineaService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+    </service>
+    <controller name="AerolineaController" basePath="/api/aerolineas">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+    </controller>
+    <associations xmi:id="Aerolinea_aviones" name="aviones" target="Avion" opposite="Avion_aerolinea" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="aerolinea" fetch="LAZY" />
+    <constraints name="uk_aerolinea_codigo" kind="UNIQUE" cimRules="RN-10" columns="codigo" />
+  </entities>
+  <entities xmi:id="Avion" name="Avion" tableName="aviones" sourceClass="Avion">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="matricula" columnName="matricula" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="capacidad" columnName="capacidad" javaType="INTEGER" sqlType="integer" nullable="false" positive="true" />
+    <repository name="AvionRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="AvionService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+      <policies name="validarCapacidad" kind="VALIDATE" cimRules="RN-09 RN-14" description="Capacidad positiva y aerolinea existente." />
+    </service>
+    <controller name="AvionController" basePath="/api/aviones">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+    </controller>
+    <associations xmi:id="Avion_aerolinea" name="aerolinea" target="Aerolinea" opposite="Aerolinea_aviones" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="aerolinea_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Avion_vuelos" name="vuelos" target="Vuelo" opposite="Vuelo_avion" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="avion" fetch="LAZY" />
+    <constraints name="uk_avion_matricula" kind="UNIQUE" cimRules="RN-10" columns="matricula" />
+    <constraints name="ck_avion_capacidad" kind="CHECK" cimRules="RN-09" expression="capacidad &gt; 0" />
+  </entities>
+  <entities xmi:id="Ruta" name="Ruta" tableName="rutas" sourceClass="Ruta">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <repository name="RutaRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="RutaService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+      <policies name="validarExtremos" kind="VALIDATE" cimRules="RN-01 RN-11" description="Extremos distintos, existentes y par dirigido unico." />
+    </service>
+    <controller name="RutaController" basePath="/api/rutas">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+    </controller>
+    <associations xmi:id="Ruta_origen" name="origen" target="Aeropuerto" opposite="Aeropuerto_rutasOrigen" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="origen_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Ruta_destino" name="destino" target="Aeropuerto" opposite="Aeropuerto_rutasDestino" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="destino_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Ruta_vuelos" name="vuelos" target="Vuelo" opposite="Vuelo_ruta" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="ruta" fetch="LAZY" />
+    <constraints name="uk_ruta_extremos" kind="UNIQUE" cimRules="RN-11" columns="origen_id destino_id" />
+    <constraints name="ck_ruta_extremos" kind="CHECK" cimRules="RN-01" expression="origen_id &lt;&gt; destino_id" />
+  </entities>
+  <entities xmi:id="Vuelo" name="Vuelo" tableName="vuelos" sourceClass="Vuelo">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="codigo" columnName="codigo" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="salida" columnName="salida" javaType="OFFSET_DATE_TIME" sqlType="timestamp with time zone" nullable="false" />
+    <attributes name="llegada" columnName="llegada" javaType="OFFSET_DATE_TIME" sqlType="timestamp with time zone" nullable="false" />
+    <repository name="VueloRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="VueloService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+      <policies name="bloquearAvion" kind="LOCK" cimRules="RN-08" description="Bloqueo pesimista de la fila del avion durante programacion para serializar asignaciones." />
+      <policies name="validarHorario" kind="TEMPORAL" cimRules="RN-02 RN-05 RN-08 RN-12" description="Salida futura, llegada posterior y ausencia de solapamiento [salida,llegada) con vuelos del avion bloqueado." />
+    </service>
+    <controller name="VueloController" basePath="/api/vuelos">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+      <operations name="disponibles" kind="AVAILABLE" httpMethod="GET" path="/disponibles" />
+    </controller>
+    <associations xmi:id="Vuelo_ruta" name="ruta" target="Ruta" opposite="Ruta_vuelos" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="ruta_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Vuelo_avion" name="avion" target="Avion" opposite="Avion_vuelos" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="avion_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Vuelo_reservas" name="reservas" target="Reserva" opposite="Reserva_vuelo" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="vuelo" fetch="LAZY" />
+    <constraints name="uk_vuelo_codigo" kind="UNIQUE" cimRules="RN-10" columns="codigo" />
+    <constraints name="ck_vuelo_horario" kind="CHECK" cimRules="RN-02" expression="llegada &gt; salida" />
+  </entities>
+  <entities xmi:id="Pasajero" name="Pasajero" tableName="pasajeros" sourceClass="Pasajero">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="documento" columnName="documento" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="nombreCompleto" columnName="nombre_completo" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="contacto" columnName="contacto" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <repository name="PasajeroRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="PasajeroService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+    </service>
+    <controller name="PasajeroController" basePath="/api/pasajeros">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="crear" kind="CREATE" httpMethod="POST" path="" />
+    </controller>
+    <associations xmi:id="Pasajero_reservas" name="reservas" target="Reserva" opposite="Reserva_pasajero" kind="ONE_TO_MANY" lower="0" upper="-1" owning="false" mappedBy="pasajero" fetch="LAZY" />
+    <constraints name="uk_pasajero_documento" kind="UNIQUE" cimRules="RN-10" columns="documento" />
+  </entities>
+  <entities xmi:id="Reserva" name="Reserva" tableName="reservas" sourceClass="Reserva">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="localizador" columnName="localizador" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="creadaEn" columnName="creada_en" javaType="OFFSET_DATE_TIME" sqlType="timestamp with time zone" nullable="false" />
+    <attributes name="estado" columnName="estado" javaType="ENUM" sqlType="varchar(32)" nullable="false" enumType="estadoReserva" length="32" />
+    <attributes name="numeroAsiento" columnName="numero_asiento" javaType="INTEGER" sqlType="integer" nullable="false" positive="true" />
+    <repository name="ReservaRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="ReservaService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+      <policies name="bloquearVuelo" kind="LOCK" cimRules="RN-03 RN-04 RN-17" description="Bloquear la fila del vuelo antes de consultar cupos, duplicidad y asientos; mantener bloqueo hasta confirmar la transaccion." />
+      <policies name="asignarAsiento" kind="ALLOCATE_SEAT" cimRules="RN-03 RN-04 RN-06 RN-12 RN-16 RN-17 RN-18" description="Con vuelo bloqueado y salida futura: verificar pasajero, duplicidad y capacidad; asignar el menor asiento libre del 1 a capacidad; confirmar atomicamente." />
+      <policies name="cancelarSinBoleto" kind="CANCEL_RESERVATION" cimRules="RN-12 RN-13 RN-19" description="Bloquear vuelo y luego reserva; cancelar antes de salida solo sin boleto; conservar asiento historico; repetir cancelacion no libera otro cupo." />
+    </service>
+    <controller name="ReservaController" basePath="/api/reservas">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="reservar" kind="CREATE" httpMethod="POST" path="" />
+      <operations name="cancelar" kind="CANCEL" httpMethod="POST" path="/{id}/cancelacion" />
+    </controller>
+    <associations xmi:id="Reserva_pasajero" name="pasajero" target="Pasajero" opposite="Pasajero_reservas" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="pasajero_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Reserva_vuelo" name="vuelo" target="Vuelo" opposite="Vuelo_reservas" kind="MANY_TO_ONE" lower="1" upper="1" owning="true" joinColumn="vuelo_id" fetch="LAZY" onDelete="RESTRICT" />
+    <associations xmi:id="Reserva_boleto" name="boleto" target="Boleto" opposite="Boleto_reserva" kind="ONE_TO_ONE" lower="0" upper="1" owning="false" mappedBy="reserva" fetch="LAZY" />
+    <constraints name="uk_reserva_localizador" kind="UNIQUE" cimRules="RN-10" columns="localizador" />
+    <constraints name="uk_reserva_asiento_confirmado" kind="PARTIAL_UNIQUE" cimRules="RN-17" columns="vuelo_id numero_asiento" expression="estado = 'CONFIRMADA'" />
+    <constraints name="uk_reserva_pasajero_confirmado" kind="PARTIAL_UNIQUE" cimRules="RN-04" columns="vuelo_id pasajero_id" expression="estado = 'CONFIRMADA'" />
+    <constraints name="ck_reserva_asiento" kind="CHECK" cimRules="RN-16" expression="numero_asiento &gt; 0" />
+    <constraints name="ck_reserva_estado" kind="CHECK" cimRules="RN-13" expression="estado IN ('CONFIRMADA', 'CANCELADA')" />
+  </entities>
+  <entities xmi:id="Boleto" name="Boleto" tableName="boletos" sourceClass="Boleto">
+    <attributes name="id" columnName="id" javaType="LONG" sqlType="bigint" nullable="false" primaryKey="true" generated="true" idStrategy="IDENTITY" />
+    <attributes name="numero" columnName="numero" javaType="STRING" sqlType="varchar(255)" nullable="false" notBlank="true" length="255" />
+    <attributes name="emitidoEn" columnName="emitido_en" javaType="OFFSET_DATE_TIME" sqlType="timestamp with time zone" nullable="false" />
+    <repository name="BoletoRepository" baseInterface="org.springframework.data.jpa.repository.JpaRepository" />
+    <service name="BoletoService" transactional="true">
+      <policies name="validarDatos" kind="VALIDATE" cimRules="RN-10 RN-15" description="Validar campos, identidad y referencias antes de confirmar; conservar registros referenciados." />
+      <policies name="emitirUnaVez" kind="ISSUE_TICKET" cimRules="RN-07 RN-12 RN-19" description="Bloquear vuelo y luego reserva, igual que cancelacion; devolver boleto existente o emitir para confirmada antes de salida; mostrar asiento por referencia." />
+    </service>
+    <controller name="BoletoController" basePath="/api/boletos">
+      <operations name="listar" kind="LIST" httpMethod="GET" path="" />
+      <operations name="consultar" kind="DETAIL" httpMethod="GET" path="/{id}" />
+      <operations name="emitir" kind="ISSUE" httpMethod="POST" path="/reserva/{reservaId}" />
+    </controller>
+    <associations xmi:id="Boleto_reserva" name="reserva" target="Reserva" opposite="Reserva_boleto" kind="ONE_TO_ONE" lower="1" upper="1" owning="true" joinColumn="reserva_id" fetch="LAZY" onDelete="RESTRICT" />
+    <constraints name="uk_boleto_numero" kind="UNIQUE" cimRules="RN-10" columns="numero" />
+    <constraints name="uk_boleto_reserva" kind="UNIQUE" cimRules="RN-07" columns="reserva_id" />
+  </entities>
+</springpsm:Application>

@@ -1,0 +1,18 @@
+infrastructure/validation/build/
+.metadata/
+transformations/m2m/build/
+transformations/m2m/src/*.asm
+transformations/m2t/build/
+transformations/m2t/bin/
+generated/backend/target/
+.cache/
+
+# Local credentials, editor state, logs and Python caches
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db

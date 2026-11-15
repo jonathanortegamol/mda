@@ -1,0 +1,13 @@
+﻿{
+    "checkedAtUtc":  "2026-11-15T17:54:19.5842892Z",
+    "generator":  "Acceleo 3.7.15",
+    "outputs":  5,
+    "repeatability":  "passed",
+    "generatedForms":  8,
+    "baselineChecks":  27,
+    "phoneVariantChecks":  29,
+    "phoneInHtmlAndMetadata":  "passed",
+    "demoAdapterAndStorage":  "passed",
+    "browserVisualReview":  "blocked: Computer Use could not identify Chrome URL confidently",
+    "apiBackendIntegration":  "not executed"
+}

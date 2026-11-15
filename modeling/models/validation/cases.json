@@ -1,0 +1,46 @@
+[
+  {
+    "file": "invalido-origen-destino.xmi",
+    "expectedConstraint": "OrigenDistintoDestino"
+  },
+  {
+    "file": "invalido-capacidad.xmi",
+    "expectedConstraint": "CapacidadPositiva"
+  },
+  {
+    "file": "invalido-sobrecupo.xmi",
+    "expectedConstraint": "CapacidadRespetada"
+  },
+  {
+    "file": "invalido-asiento-repetido.xmi",
+    "expectedConstraint": "AsientosConfirmadosUnicos"
+  },
+  {
+    "file": "invalido-asiento-fuera-rango.xmi",
+    "expectedConstraint": "AsientoEnRango"
+  },
+  {
+    "file": "invalido-pasajero-duplicado.xmi",
+    "expectedConstraint": "PasajerosConfirmadosUnicos"
+  },
+  {
+    "file": "invalido-boleto-reserva-cancelada.xmi",
+    "expectedConstraint": "ReservaConfirmada"
+  },
+  {
+    "file": "invalido-identidad.xmi",
+    "expectedConstraint": "AeropuertoIdentidadUnica"
+  },
+  {
+    "file": "invalido-texto-vacio.xmi",
+    "expectedConstraint": "TextosNoVacios"
+  },
+  {
+    "file": "invalido-ruta-duplicada.xmi",
+    "expectedConstraint": "RutasUnicas"
+  },
+  {
+    "file": "valido-asiento-reutilizado.xmi",
+    "expectedConstraint": ""
+  }
+]
