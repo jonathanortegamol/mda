@@ -13,13 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly=true)
 public class BoletoService {
     private final BoletoRepository repository;
-    private final VueloRepository vueloRepository;
     private final ReservaRepository reservaRepository;
+    private final VueloRepository vueloRepository;
     private final Clock clock;
-    public BoletoService(BoletoRepository repository, VueloRepository vueloRepository, ReservaRepository reservaRepository, Clock clock) {
+    public BoletoService(BoletoRepository repository, ReservaRepository reservaRepository, VueloRepository vueloRepository, Clock clock) {
         this.repository = repository;
-        this.vueloRepository = vueloRepository;
         this.reservaRepository = reservaRepository;
+        this.vueloRepository = vueloRepository;
         this.clock = clock;
     }
     private BoletoResponse response(Boleto value) {

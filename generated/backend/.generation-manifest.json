@@ -1,6 +1,7 @@
 ﻿{
     "generator":  "Acceleo 3",
-    "generatedAtUtc":  "2026-11-15T17:18:16.8241716Z",
+    "target":  "backend",
+    "generatedAtUtc":  "2026-11-16T03:41:48.8223745Z",
     "inputMode":  "ATL-produced PSM (provenance checked)",
     "runtimeJars":  [
                         "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
@@ -28,7 +29,7 @@
     "sources":  [
                     {
                         "path":  "transformations\\m2t\\src\\backend.mtl",
-                        "sha256":  "8421D247F140A345A28EE97BD9861B3CB163AA993A13372B7F2BBEBB2F0456E6"
+                        "sha256":  "B6A09FABF1C0A40FD3F902FBC315D8B1541B5333A17E6245111C0CF867AA46DF"
                     },
                     {
                         "path":  "modeling\\models\\generated\\spring-psm.xmi",
@@ -44,7 +45,7 @@
                     },
                     {
                         "path":  "transformations\\m2t\\build\\backend.emtl",
-                        "sha256":  "286DED45F4C2E4AD0E958BF4E35275C13ED04EF51691E3150DD39BF4FE51B802"
+                        "sha256":  "9F4C6ED040EDE943E9E3830F06FFC75AE45F56F033CFD78284C22F0CB57A1DFC"
                     }
                 ],
     "outputs":  [
@@ -202,7 +203,7 @@
                     },
                     {
                         "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\BoletoService.java",
-                        "sha256":  "A7B8904C7D4080BA3B13F01B40F45696BD272CB354F0E36B034549D7D655A07B"
+                        "sha256":  "022FBAB46EE4A218AD71A11BB3622EDAC43F44BCE6387E339AF146E030164655"
                     },
                     {
                         "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\PasajeroService.java",
@@ -210,7 +211,7 @@
                     },
                     {
                         "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\ReservaService.java",
-                        "sha256":  "A0D1105462E847ABD225326851E6C0B77C0286DCD5574DD35809561EDCB42C7A"
+                        "sha256":  "F75B56EBE9E6D4D31146DC9D744367FCE1F76B50F7BBF20F791FC3C071804FE9"
                     },
                     {
                         "path":  "src\\main\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\service\\RutaService.java",
@@ -266,7 +267,7 @@
                     },
                     {
                         "path":  "src\\test\\java\\ec\\edu\\ucuenca\\mda\\vuelos\\BusinessRulesTest.java",
-                        "sha256":  "BB299BCDDED0B24E9A06B1367B4E56C8085F73416FAEA69AF6C5BEBA60120961"
+                        "sha256":  "6F13D079DA312ED75E1B233CC9B3E5BE01AD054C08FD34B0963D9906EF68CBB4"
                     },
                     {
                         "path":  "src\\test\\resources\\mockito-extensions\\org.mockito.plugins.MockMaker",

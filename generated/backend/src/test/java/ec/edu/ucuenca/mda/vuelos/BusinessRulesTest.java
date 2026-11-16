@@ -38,8 +38,8 @@ class BusinessRulesTest {
         reservaRepository = mock(ReservaRepository.class);
         boletoRepository = mock(BoletoRepository.class);
         vuelos = new VueloService(vueloRepository, rutaRepository, avionRepository, reservaRepository, clock);
-        reservas = new ReservaService(reservaRepository, vueloRepository, pasajeroRepository, boletoRepository, clock);
-        boletos = new BoletoService(boletoRepository, vueloRepository, reservaRepository, clock);
+        reservas = new ReservaService(reservaRepository, pasajeroRepository, vueloRepository, boletoRepository, clock);
+        boletos = new BoletoService(boletoRepository, reservaRepository, vueloRepository, clock);
         avion = new Avion(); avion.setId(1L); avion.setCapacidad(2);
         vuelo = new Vuelo(); vuelo.setId(1L); vuelo.setAvion(avion);
         vuelo.setSalida(OffsetDateTime.parse("2030-01-10T15:00:00Z"));
