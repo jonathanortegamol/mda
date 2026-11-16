@@ -1,7 +1,7 @@
 ﻿{
     "generator":  "Acceleo 3",
     "target":  "frontend",
-    "generatedAtUtc":  "2026-11-16T03:07:08.0154778Z",
+    "generatedAtUtc":  "2026-11-16T03:37:57.0710630Z",
     "inputMode":  "ATL-produced PSM (provenance checked)",
     "runtimeJars":  [
                         "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
@@ -29,7 +29,7 @@
     "sources":  [
                     {
                         "path":  "transformations\\m2t\\src\\frontend.mtl",
-                        "sha256":  "0CC2C8798B34A18642F7E6246B8FB165EA308F1228FBB0DDD1F0CF8D36C79877"
+                        "sha256":  "38217286CD74D76A60BCE26F89A7F652D073F7BF1E8BEB125A5D181F25E56F7D"
                     },
                     {
                         "path":  "modeling\\models\\generated\\spring-psm.xmi",
@@ -45,13 +45,13 @@
                     },
                     {
                         "path":  "transformations\\m2t\\build\\frontend.emtl",
-                        "sha256":  "5B7D280395FE2AD8577E6EBE3E3525EA01404435F5E9863F92B5A06D3C5A6E92"
+                        "sha256":  "4DB9BD8D790AE681DD7635FE91047C5A5F3069E0D19BD9063503D04C296CEAF0"
                     }
                 ],
     "outputs":  [
                     {
                         "path":  "app.js",
-                        "sha256":  "2293843D84D1F29207F665B1F98F97EA75352F3F02933A3F0ED9E28B813DB0FE"
+                        "sha256":  "6CC9F18FC494555C4B10EF1F6B7D4D58DE02CC42FF24904549DCA0B897ADAD12"
                     },
                     {
                         "path":  "demo-store.js",
@@ -59,7 +59,7 @@
                     },
                     {
                         "path":  "index.html",
-                        "sha256":  "B413A0CA1AB319894BBDF000FDE65F01E37FA31294962294267196177F670283"
+                        "sha256":  "897A9440AE5456D25D0EE05616EF833D8E76B1C00BC24F5F142D9E11F09874D4"
                     },
                     {
                         "path":  "model.js",
@@ -67,7 +67,7 @@
                     },
                     {
                         "path":  "styles.css",
-                        "sha256":  "65CC61BD493B57E5C10149BF573E321DE0DB15A19F5BDED9974D003B762553E1"
+                        "sha256":  "4FD6878E171F62DDA34BF448F704A39D354AC841099AD2B17C61ABF8F5D524E1"
                     }
                 ]
 }

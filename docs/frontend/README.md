@@ -12,7 +12,6 @@ La salida fue producida por Acceleo 3 desde el PSM generado por ATL; no es un si
 - **Reservas:** creación con asignación automática de asiento, filtros por estado, cancelación y emisión de boleto.
 - **Boletos:** emisión y consulta de una constancia visual, con asiento e impresión desde el navegador.
 - **Catálogos:** aeropuertos, aerolíneas, aviones y rutas, con formularios para sus relaciones.
-- **Modelo MDA:** muestra la cadena de generación y los campos del PSM que usa la interfaz.
 
 ## Recorrido recomendado
 

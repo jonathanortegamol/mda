@@ -16,3 +16,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 Thumbs.db
+
+# Lanzadores Java que el builder de Acceleo crea en Obeo (no usados)
+transformations/m2t/src/*.java
+transformations/m2t/bin/
