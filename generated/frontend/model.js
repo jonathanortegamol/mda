@@ -3,7 +3,7 @@ globalThis.FlightModel = {
  name: 'FlightManagement', namespace: 'https://ucuenca.edu.ec/mda/vuelos/1.0', entities: [
  {name:'Aeropuerto', table:'aeropuertos', path:'/api/aeropuertos', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
-, {name:'codigo',column:'codigo',label:'C?digo',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
+, {name:'codigo',column:'codigo',label:'Código',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
 , {name:'nombre',column:'nombre',label:'Nombre',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
 , {name:'ciudad',column:'ciudad',label:'Ciudad',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
  ],relations:[
@@ -16,7 +16,7 @@ globalThis.FlightModel = {
  ]}
 , {name:'Aerolinea', table:'aerolineas', path:'/api/aerolineas', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
-, {name:'codigo',column:'codigo',label:'C?digo',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
+, {name:'codigo',column:'codigo',label:'Código',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
 , {name:'nombre',column:'nombre',label:'Nombre',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
  ],relations:[
  ],uniqueFields:[
@@ -28,10 +28,10 @@ globalThis.FlightModel = {
  ]}
 , {name:'Avion', table:'aviones', path:'/api/aviones', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
-, {name:'matricula',column:'matricula',label:'Matr?cula',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
+, {name:'matricula',column:'matricula',label:'Matrícula',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
 , {name:'capacidad',column:'capacidad',label:'Capacidad',type:'INTEGER',required:true,primaryKey:false,positive:true,length:0,values:[]}
  ],relations:[
- {name:'aerolinea',label:'Aerol?nea',target:'Aerolinea',required:true}
+ {name:'aerolinea',label:'Aerolínea',target:'Aerolinea',required:true}
  ],uniqueFields:[
 'matricula'
  ],operations:[
@@ -52,12 +52,12 @@ globalThis.FlightModel = {
  ]}
 , {name:'Vuelo', table:'vuelos', path:'/api/vuelos', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
-, {name:'codigo',column:'codigo',label:'C?digo',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
+, {name:'codigo',column:'codigo',label:'Código',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
 , {name:'salida',column:'salida',label:'Salida',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
 , {name:'llegada',column:'llegada',label:'Llegada',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
  ],relations:[
  {name:'ruta',label:'Ruta',target:'Ruta',required:true}
-, {name:'avion',label:'Avi?n',target:'Avion',required:true}
+, {name:'avion',label:'Avión',target:'Avion',required:true}
  ],uniqueFields:[
 'codigo'
  ],operations:[
@@ -82,7 +82,7 @@ globalThis.FlightModel = {
 , {name:'Reserva', table:'reservas', path:'/api/reservas', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
 , {name:'localizador',column:'localizador',label:'Localizador',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
-, {name:'creadaEn',column:'creada_en',label:'Creaci?n',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
+, {name:'creadaEn',column:'creada_en',label:'Creación',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
 , {name:'estado',column:'estado',label:'Estado',type:'ENUM',required:true,primaryKey:false,positive:false,length:32,values:['CONFIRMADA','CANCELADA']}
 , {name:'numeroAsiento',column:'numero_asiento',label:'Asiento',type:'INTEGER',required:true,primaryKey:false,positive:true,length:0,values:[]}
  ],relations:[
@@ -99,7 +99,7 @@ globalThis.FlightModel = {
 , {name:'Boleto', table:'boletos', path:'/api/boletos', fields:[
  {name:'id',column:'id',label:'Id',type:'LONG',required:true,primaryKey:true,positive:false,length:0,values:[]}
 , {name:'numero',column:'numero',label:'Numero',type:'STRING',required:true,primaryKey:false,positive:false,length:255,values:[]}
-, {name:'emitidoEn',column:'emitido_en',label:'Emisi?n',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
+, {name:'emitidoEn',column:'emitido_en',label:'Emisión',type:'OFFSET_DATE_TIME',required:true,primaryKey:false,positive:false,length:0,values:[]}
  ],relations:[
  {name:'reserva',label:'Reserva',target:'Reserva',required:true}
  ],uniqueFields:[

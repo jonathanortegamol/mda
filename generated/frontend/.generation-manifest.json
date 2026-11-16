@@ -1,7 +1,7 @@
 ﻿{
     "generator":  "Acceleo 3",
     "target":  "frontend",
-    "generatedAtUtc":  "2026-11-15T17:54:13.5917650Z",
+    "generatedAtUtc":  "2026-11-16T03:07:08.0154778Z",
     "inputMode":  "ATL-produced PSM (provenance checked)",
     "runtimeJars":  [
                         "org.eclipse.emf.common_2.43.0.v20250629-1403.jar",
@@ -29,7 +29,7 @@
     "sources":  [
                     {
                         "path":  "transformations\\m2t\\src\\frontend.mtl",
-                        "sha256":  "9CB93B28CFB6FD16E4E01C3BB1A8292421B8C343B745D05E4A159ABEB4195368"
+                        "sha256":  "0CC2C8798B34A18642F7E6246B8FB165EA308F1228FBB0DDD1F0CF8D36C79877"
                     },
                     {
                         "path":  "modeling\\models\\generated\\spring-psm.xmi",
@@ -45,7 +45,7 @@
                     },
                     {
                         "path":  "transformations\\m2t\\build\\frontend.emtl",
-                        "sha256":  "112F7236AACF5F384AB848848A9AFBF2D8ADD408086F5EF81772A35997316A1F"
+                        "sha256":  "5B7D280395FE2AD8577E6EBE3E3525EA01404435F5E9863F92B5A06D3C5A6E92"
                     }
                 ],
     "outputs":  [
@@ -59,11 +59,11 @@
                     },
                     {
                         "path":  "index.html",
-                        "sha256":  "09D573F4558E1354746C2219937AED8ECD8709553FF6E158EB993312E6681415"
+                        "sha256":  "B413A0CA1AB319894BBDF000FDE65F01E37FA31294962294267196177F670283"
                     },
                     {
                         "path":  "model.js",
-                        "sha256":  "9DA4977F8EB5258CE37E241DD09E6E07A1517C4C395B62979BE516E9FC7BFF95"
+                        "sha256":  "9BE6A40436A6E3FA13D0E8B0F3872CD041BE5209E8E45B7F68E60405AA9F2010"
                     },
                     {
                         "path":  "styles.css",

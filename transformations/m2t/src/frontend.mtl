@@ -17,7 +17,7 @@
 [for (a : Attribute | e.attributes->reject(primaryKey))]
 <label class="field" for="field-[e.name/]-[a.name/]"><span>[label(a.name)/][if (not a.nullable)] <b aria-hidden="true">*</b>[/if]</span>
 [if (a.javaType = JavaType::ENUM)]
-<select id="field-[e.name/]-[a.name/]" name="[a.name/]"[if (not a.nullable)] required[/if]><option value="">Selecciona una opci?n</option>[for (l : EnumLiteral | a.enumType.literals)]<option value="[l.name/]">[l.name/]</option>[/for]</select>
+<select id="field-[e.name/]-[a.name/]" name="[a.name/]"[if (not a.nullable)] required[/if]><option value="">Selecciona una opción</option>[for (l : EnumLiteral | a.enumType.literals)]<option value="[l.name/]">[l.name/]</option>[/for]</select>
 [else]
 <input id="field-[e.name/]-[a.name/]" name="[a.name/]" type="[inputType(a)/]"[if (not a.nullable)] required[/if][if (a.positive)] min="1"[/if][if (a.length > 0)] maxlength="[a.length/]"[/if][if (a.javaType = JavaType::INTEGER or a.javaType = JavaType::LONG)] step="1"[/if] autocomplete="off" placeholder="[label(a.name)/]">
 [/if]
@@ -25,7 +25,7 @@
 [/for]
 [/if]
 [for (r : Association | e.associations->select(owning))]
-<label class="field" for="field-[e.name/]-[r.name/]Id"><span>[label(r.name)/][if (r.lower > 0)] <b aria-hidden="true">*</b>[/if]</span><select id="field-[e.name/]-[r.name/]Id" name="[r.name/]Id" data-reference="[r.target.name/]"[if (r.lower > 0)] required[/if]><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-[e.name/]-[r.name/]Id"><span>[label(r.name)/][if (r.lower > 0)] <b aria-hidden="true">*</b>[/if]</span><select id="field-[e.name/]-[r.name/]Id" name="[r.name/]Id" data-reference="[r.target.name/]"[if (r.lower > 0)] required[/if]><option value="">Selecciona una opción</option></select></label>
 [/for]
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 [/for]
@@ -145,11 +145,11 @@ $('#reset-demo').onclick=()=>{if(settings.mode!=='demo'){toast('Cambia al modo d
 [/template]
 
 [query public label(s : String) : String =
- if s='codigo' then 'C?digo' else if s='nombreCompleto' then 'Nombre completo' else
- if s='matricula' then 'Matr?cula' else if s='capacidad' then 'Capacidad' else
- if s='numeroAsiento' then 'Asiento' else if s='creadaEn' then 'Creaci?n' else
- if s='emitidoEn' then 'Emisi?n' else if s='aerolinea' then 'Aerol?nea' else
- if s='avion' then 'Avi?n' else s.toUpperFirst() endif endif endif endif endif endif endif endif endif /]
+ if s='codigo' then 'Código' else if s='nombreCompleto' then 'Nombre completo' else
+ if s='matricula' then 'Matrícula' else if s='capacidad' then 'Capacidad' else
+ if s='numeroAsiento' then 'Asiento' else if s='creadaEn' then 'Creación' else
+ if s='emitidoEn' then 'Emisión' else if s='aerolinea' then 'Aerolínea' else
+ if s='avion' then 'Avión' else s.toUpperFirst() endif endif endif endif endif endif endif endif endif /]
 [query public inputType(a : Attribute) : String =
  if a.javaType=JavaType::INTEGER or a.javaType=JavaType::LONG then 'number' else
  if a.javaType=JavaType::OFFSET_DATE_TIME then 'datetime-local' else 'text' endif endif /]

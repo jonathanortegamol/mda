@@ -7,8 +7,8 @@
 <div id="toast" role="status" aria-live="polite" hidden></div>
 
 <template id="form-Aeropuerto"><form class="entity-form" data-entity="Aeropuerto"><div class="form-grid">
-<label class="field" for="field-Aeropuerto-codigo"><span>C?digo <b aria-hidden="true">*</b></span>
-<input id="field-Aeropuerto-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="C?digo">
+<label class="field" for="field-Aeropuerto-codigo"><span>Código <b aria-hidden="true">*</b></span>
+<input id="field-Aeropuerto-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="Código">
 </label>
 <label class="field" for="field-Aeropuerto-nombre"><span>Nombre <b aria-hidden="true">*</b></span>
 <input id="field-Aeropuerto-nombre" name="nombre" type="text" required maxlength="255" autocomplete="off" placeholder="Nombre">
@@ -18,29 +18,29 @@
 </label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Aerolinea"><form class="entity-form" data-entity="Aerolinea"><div class="form-grid">
-<label class="field" for="field-Aerolinea-codigo"><span>C?digo <b aria-hidden="true">*</b></span>
-<input id="field-Aerolinea-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="C?digo">
+<label class="field" for="field-Aerolinea-codigo"><span>Código <b aria-hidden="true">*</b></span>
+<input id="field-Aerolinea-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="Código">
 </label>
 <label class="field" for="field-Aerolinea-nombre"><span>Nombre <b aria-hidden="true">*</b></span>
 <input id="field-Aerolinea-nombre" name="nombre" type="text" required maxlength="255" autocomplete="off" placeholder="Nombre">
 </label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Avion"><form class="entity-form" data-entity="Avion"><div class="form-grid">
-<label class="field" for="field-Avion-matricula"><span>Matr?cula <b aria-hidden="true">*</b></span>
-<input id="field-Avion-matricula" name="matricula" type="text" required maxlength="255" autocomplete="off" placeholder="Matr?cula">
+<label class="field" for="field-Avion-matricula"><span>Matrícula <b aria-hidden="true">*</b></span>
+<input id="field-Avion-matricula" name="matricula" type="text" required maxlength="255" autocomplete="off" placeholder="Matrícula">
 </label>
 <label class="field" for="field-Avion-capacidad"><span>Capacidad <b aria-hidden="true">*</b></span>
 <input id="field-Avion-capacidad" name="capacidad" type="number" required min="1" step="1" autocomplete="off" placeholder="Capacidad">
 </label>
-<label class="field" for="field-Avion-aerolineaId"><span>Aerol?nea <b aria-hidden="true">*</b></span><select id="field-Avion-aerolineaId" name="aerolineaId" data-reference="Aerolinea" required><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-Avion-aerolineaId"><span>Aerolínea <b aria-hidden="true">*</b></span><select id="field-Avion-aerolineaId" name="aerolineaId" data-reference="Aerolinea" required><option value="">Selecciona una opción</option></select></label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Ruta"><form class="entity-form" data-entity="Ruta"><div class="form-grid">
-<label class="field" for="field-Ruta-origenId"><span>Origen <b aria-hidden="true">*</b></span><select id="field-Ruta-origenId" name="origenId" data-reference="Aeropuerto" required><option value="">Selecciona una opci?n</option></select></label>
-<label class="field" for="field-Ruta-destinoId"><span>Destino <b aria-hidden="true">*</b></span><select id="field-Ruta-destinoId" name="destinoId" data-reference="Aeropuerto" required><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-Ruta-origenId"><span>Origen <b aria-hidden="true">*</b></span><select id="field-Ruta-origenId" name="origenId" data-reference="Aeropuerto" required><option value="">Selecciona una opción</option></select></label>
+<label class="field" for="field-Ruta-destinoId"><span>Destino <b aria-hidden="true">*</b></span><select id="field-Ruta-destinoId" name="destinoId" data-reference="Aeropuerto" required><option value="">Selecciona una opción</option></select></label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Vuelo"><form class="entity-form" data-entity="Vuelo"><div class="form-grid">
-<label class="field" for="field-Vuelo-codigo"><span>C?digo <b aria-hidden="true">*</b></span>
-<input id="field-Vuelo-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="C?digo">
+<label class="field" for="field-Vuelo-codigo"><span>Código <b aria-hidden="true">*</b></span>
+<input id="field-Vuelo-codigo" name="codigo" type="text" required maxlength="255" autocomplete="off" placeholder="Código">
 </label>
 <label class="field" for="field-Vuelo-salida"><span>Salida <b aria-hidden="true">*</b></span>
 <input id="field-Vuelo-salida" name="salida" type="datetime-local" required autocomplete="off" placeholder="Salida">
@@ -48,8 +48,8 @@
 <label class="field" for="field-Vuelo-llegada"><span>Llegada <b aria-hidden="true">*</b></span>
 <input id="field-Vuelo-llegada" name="llegada" type="datetime-local" required autocomplete="off" placeholder="Llegada">
 </label>
-<label class="field" for="field-Vuelo-rutaId"><span>Ruta <b aria-hidden="true">*</b></span><select id="field-Vuelo-rutaId" name="rutaId" data-reference="Ruta" required><option value="">Selecciona una opci?n</option></select></label>
-<label class="field" for="field-Vuelo-avionId"><span>Avi?n <b aria-hidden="true">*</b></span><select id="field-Vuelo-avionId" name="avionId" data-reference="Avion" required><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-Vuelo-rutaId"><span>Ruta <b aria-hidden="true">*</b></span><select id="field-Vuelo-rutaId" name="rutaId" data-reference="Ruta" required><option value="">Selecciona una opción</option></select></label>
+<label class="field" for="field-Vuelo-avionId"><span>Avión <b aria-hidden="true">*</b></span><select id="field-Vuelo-avionId" name="avionId" data-reference="Avion" required><option value="">Selecciona una opción</option></select></label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Pasajero"><form class="entity-form" data-entity="Pasajero"><div class="form-grid">
 <label class="field" for="field-Pasajero-documento"><span>Documento <b aria-hidden="true">*</b></span>
@@ -63,11 +63,11 @@
 </label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Reserva"><form class="entity-form" data-entity="Reserva"><div class="form-grid">
-<label class="field" for="field-Reserva-pasajeroId"><span>Pasajero <b aria-hidden="true">*</b></span><select id="field-Reserva-pasajeroId" name="pasajeroId" data-reference="Pasajero" required><option value="">Selecciona una opci?n</option></select></label>
-<label class="field" for="field-Reserva-vueloId"><span>Vuelo <b aria-hidden="true">*</b></span><select id="field-Reserva-vueloId" name="vueloId" data-reference="Vuelo" required><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-Reserva-pasajeroId"><span>Pasajero <b aria-hidden="true">*</b></span><select id="field-Reserva-pasajeroId" name="pasajeroId" data-reference="Pasajero" required><option value="">Selecciona una opción</option></select></label>
+<label class="field" for="field-Reserva-vueloId"><span>Vuelo <b aria-hidden="true">*</b></span><select id="field-Reserva-vueloId" name="vueloId" data-reference="Vuelo" required><option value="">Selecciona una opción</option></select></label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 <template id="form-Boleto"><form class="entity-form" data-entity="Boleto"><div class="form-grid">
-<label class="field" for="field-Boleto-reservaId"><span>Reserva <b aria-hidden="true">*</b></span><select id="field-Boleto-reservaId" name="reservaId" data-reference="Reserva" required><option value="">Selecciona una opci?n</option></select></label>
+<label class="field" for="field-Boleto-reservaId"><span>Reserva <b aria-hidden="true">*</b></span><select id="field-Boleto-reservaId" name="reservaId" data-reference="Reserva" required><option value="">Selecciona una opción</option></select></label>
 </div><div class="form-context" hidden></div><p class="form-error" role="alert" hidden></p><div class="form-footer"><span>Campos definidos por el modelo</span><div><button type="button" class="button secondary" data-cancel>Cancelar</button><button type="submit" class="button primary" data-submit>Guardar</button></div></div></form></template>
 
 </body></html>
